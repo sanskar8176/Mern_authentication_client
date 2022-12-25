@@ -29,4 +29,8 @@ function App() {
   );
 }
 
+// render me kewal root link hi directly access kr skte hai baki root me elements ke link se hi possible 
+// esliye reset password local site pr rkh rhe hai 
+// aur usko main site pr ridirect kr rhe 
+
 export default App;

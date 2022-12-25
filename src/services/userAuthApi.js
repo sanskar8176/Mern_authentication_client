@@ -4,7 +4,9 @@ export const userAuthApi = createApi({
   
   reducerPath: 'userAuthApi',
   // server ka link 
-  baseQuery: fetchBaseQuery({ baseUrl: 'https://auth-3ra6.onrender.com/api/user/' }),
+  baseQuery: fetchBaseQuery({ 
+    baseUrl: 'https://auth-3ra6.onrender.com/api/user/' 
+  }),
 
   endpoints: (builder) => ({
 // yhi axios ka replace hai

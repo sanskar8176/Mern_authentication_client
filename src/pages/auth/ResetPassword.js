@@ -29,7 +29,9 @@ const ResetPassword = () => {
           document.getElementById('password-reset-form').reset()
           setError({ status: true, msg: "Password Reset Successfully. Redirecting to Login Page...", type: 'success' })
           setTimeout(() => {
-            navigate("/login")
+            // navigate("/login")  //internal ke lie tha
+            window.location.href = 'https://auth-app-rj8b.onrender.com/';  // ye external navigate jaisa work
+
           }, 3000)
         }
         if (res.data.status === "failed") {
