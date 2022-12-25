@@ -3,7 +3,8 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 export const userAuthApi = createApi({
   
   reducerPath: 'userAuthApi',
-  baseQuery: fetchBaseQuery({ baseUrl: 'http://127.0.0.1:8000/api/user/' }),
+  // server ka link 
+  baseQuery: fetchBaseQuery({ baseUrl: 'https://auth-3ra6.onrender.com/api/user/' }),
 
   endpoints: (builder) => ({
 // yhi axios ka replace hai
