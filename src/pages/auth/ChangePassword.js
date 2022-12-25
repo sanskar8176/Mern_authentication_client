@@ -2,7 +2,7 @@ import { Box, TextField, Button, Alert } from '@mui/material';
 import { useState } from 'react';
 import { useChangeUserPasswordMutation } from '../../services/userAuthApi';
 import { getToken } from '../../services/LocalStorageService'
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 
 const ChangePassword = () => {
   const [error, setError] = useState({
@@ -39,7 +39,7 @@ const ChangePassword = () => {
   };
 
   // Getting User Data from Redux Store
-  const myData = useSelector(state => state.user)
+  // const myData = useSelector(state => state.user)
   // console.log("Change Password", myData)
 
   return <>
