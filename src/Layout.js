@@ -1,6 +1,6 @@
 import { CssBaseline } from "@mui/material";
 import { Outlet } from "react-router-dom";
-import Navbar from "../components/Navbar";
+import Navbar from "./components/Navbar.js";
 
 const Layout = () => {
   return <>
