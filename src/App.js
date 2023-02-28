@@ -1,41 +1,36 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-
-import Dashboard from "./pages/PublicDashboard";
-import Login from "./pages/Login";
-import UserDashboard from "./pages/UserDashboard";
-import AddStateCovidData from "./pages/AddStateCovidDataForToday";
-import Layout from "./Layout.js";
-import AdminDashboard from "./pages/AdminDashboard";
+import LoginReg from "./pages/auth/LoginReg";
+import ResetPassword from "./pages/auth/ResetPassword";
+import SendPasswordResetEmail from "./pages/auth/SendPasswordResetEmail";
+import Contact from "./pages/Contact";
+import Dashboard from "./pages/Dashboard";
+import Home from "./pages/Home";
+import Layout from "./pages/Layout";
+import { useSelector } from "react-redux";
 
 function App() {
+  const { token } = useSelector(state => state.auth)
   return (
     <>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route index element={<Dashboard />} />
-
-            <Route path="/login" element={<Login />} />
-
-            <Route path="/userdashboard" element={<UserDashboard />} />
-
-            <Route
-              path="/addstatecoviddata"
-              element={<AddStateCovidData />}
-            />
-
-            <Route
-              path="/approvestatecoviddata"
-              element={<AdminDashboard />}
-            />
-
+            <Route index element={<Home />} />
+            <Route path="contact" element={<Contact />} />
+            <Route path="login" element={!token ? <LoginReg /> : <Navigate to="/dashboard" />} />
+            <Route path="sendpasswordresetemail" element={<SendPasswordResetEmail />} />
+            <Route path="api/user/reset/:id/:token" element={<ResetPassword />} />
           </Route>
-
+          <Route path="/dashboard" element={token ? <Dashboard /> : <Navigate to="/login" />} />
           <Route path="*" element={<h1>Error 404 Page not found !!</h1>} />
         </Routes>
       </BrowserRouter>
     </>
   );
 }
+
+// render me kewal root link hi directly access kr skte hai baki root me elements ke link se hi possible 
+// esliye reset password local site pr rkh rhe hai 
+// aur usko main site pr ridirect kr rhe 
 
 export default App;
